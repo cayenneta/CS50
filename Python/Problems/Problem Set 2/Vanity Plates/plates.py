@@ -5,7 +5,7 @@ def is_valid(s):
 	if not s[:2].isalpha():
 		return False
 	for letter in s:
-		if not letter.isalpha() or letter.isdigit():
+		if not (letter.isalpha() or letter.isdigit()):
 			return False
 	for letter in s:
 		if letter.isdigit() and first_digit == True and letter == "0":
