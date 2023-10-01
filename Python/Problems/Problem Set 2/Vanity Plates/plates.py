@@ -12,8 +12,8 @@ def is_valid(s):
 			return False
 		if letter.isdigit():
 			first_digit = False
-			if not s[-1].isdigit():
-				return False
+		if (not first_digit) and (not letter.isdigit()):
+			return False
 	else:
 		return True
 
