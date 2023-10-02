@@ -1,15 +1,15 @@
 def gas_checker(fuel):
-	float(x,y) = fuel.split("/")
-	tank = (x/y)
+	tank = eval(fuel)
 	if (tank) <= 0.1:
 		return "E"	
 	elif (tank) >= 0.9:
-		return "Y"
-
+		return "F"
+	else:
+		return f"{int(tank*100)}%"
 def main():
-	while True:
-		try: gas_checker(input("Fraction: "))
-		except (ValueError, ZeroDivisionError):
-			pass	
+	try:
+		print(gas_checker(input("Fraction: ")))
+	except Exception as e:
+		main()
 if __name__ == '__main__':
 	main()
