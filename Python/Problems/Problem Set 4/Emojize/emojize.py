@@ -1,4 +1,6 @@
+import emoji
 def main():
-	pass
+	text = input("Input: ")
+	print(f"Output: {emoji.emojize(text, language='alias')}")
 if __name__ == '__main__':
 	main()
