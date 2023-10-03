@@ -1,3 +1,4 @@
+import sys
 menu = {
     "Baja Taco": 4.00,
     "Burrito": 7.50,
@@ -10,13 +11,15 @@ menu = {
     "Tortilla Salad": 8.00
 }
 def main():
-	price = float(0)
-	while True:
-		order = input("Item: ")
-		for key, value in menu.items():
-			if order.lower() == key.lower():
-				price += value
-				print(f"Total: ${price:.2f}")
-				break
+	try:
+		price = float(0)
+		while True:
+			order = input("Item: ")
+			for key, value in menu.items():
+				if order.lower() == key.lower():
+					price += value
+					print(f"Total: ${price:.2f}")
+	except EOFError:
+		sys.exit()
 if __name__ == '__main__':
 	main()
