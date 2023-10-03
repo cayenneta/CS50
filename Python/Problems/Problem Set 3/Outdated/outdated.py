@@ -37,7 +37,7 @@ def main():
 				parts[0] = months.index(parts[0].lower()) + 1
 			except ValueError:
 				continue
-			if (not int(parts[0]) <= 12) or (not (int(parts[2]) <= 31)):
+			if (not int(parts[0]) <= 12) or (not (int(parts[1]) <= 31)):
 				continue
 			for i in range(2):
 				if len(str(parts[i])) == 1:
@@ -48,4 +48,3 @@ def main():
 			pass
 if __name__ == '__main__':
 	main()
- 
