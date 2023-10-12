@@ -44,9 +44,6 @@ def game(level):
 	for i in range(10):
 		if play_round(level):
 			score += 1
-			continue
-		else:
-			continue
 	return score
 
 def main():
