@@ -1,6 +1,4 @@
 import random
-x = 0
-y = 0
 
 def get_level():
 	while True:
