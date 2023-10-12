@@ -24,17 +24,22 @@ def generate_integer(level):
 	return x, y
 
 def play_round(level):
-		guesses = 3
-		x,y = generate_integer(level)
-		while guesses > 0:
+	guesses = 3
+	x,y = generate_integer(level)
+	while guesses > 0:
+		try:
 			guess = int(input(f"{x} + {y} = "))
-			if guess == (x + y):
-				return True
-			else:
-				print("EEE")	
-				guesses -= 1
-		print(f"{x} + {y} = {x + y}")
-		return False
+		except ValueError:
+			print("EEE")
+			guesses -= 1
+			continue
+		if guess == (x + y):
+			return True
+		else:
+			print("EEE")	
+			guesses -= 1
+	print(f"{x} + {y} = {x + y}")
+	return False
 
 def game(level):
 	score = 0
