@@ -1,4 +1,6 @@
 import random
+x = 0
+y = 0
 
 def get_level():
 	while True:
@@ -21,23 +23,32 @@ def generate_integer(level):
 		y = random.randint(10 ** (level - 1), (10 ** level) - 1)
 	return x, y
 
-def game(level):
-	for i in range(10):
+def play_round(level):
 		guesses = 3
 		x,y = generate_integer(level)
 		while guesses > 0:
 			guess = int(input(f"{x} + {y} = "))
 			if guess == (x + y):
-				break	
+				return True
 			else:
 				print("EEE")	
 				guesses -= 1
-		if guess == (x + y):
-			continue
 		print(f"{x} + {y} = {x + y}")
+		return False
+
+def game(level):
+	score = 0
+	for i in range(10):
+		if play_round(level):
+			score += 1
+			continue
+		else:
+			continue
+	return score
 
 def main():
 	level = get_level()
-	game(level)
+	score = game(level)
+	print(score)
 if __name__ == '__main__':
 	main()
