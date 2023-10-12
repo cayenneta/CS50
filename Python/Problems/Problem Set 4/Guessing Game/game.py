@@ -1,4 +1,5 @@
 import random
+import sys
 
 def posint_checker(input, text):
 	while True:
@@ -12,12 +13,23 @@ def posint_checker(input, text):
 			continue
 
 def generator():
-	posint_checker(level, "Level: ")
+	return posint_checker(input, "Level: ")
 
 def checker():
-	posint_checker(guess, "Guess: ")
+	return posint_checker(input, "Guess: ")
 
 def main():
-	generator()
+	level_n = generator()
+	answer = random.randint(1, level_n)
+	while True:
+		guess = checker()
+		if guess > answer:
+			print("Too large!")	
+		elif guess < answer:
+			print("Too small!")
+		else:
+			print("Just right!")
+			sys.exit()
+
 if __name__ == '__main__':
 	main()
